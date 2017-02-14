@@ -31,18 +31,25 @@ namespace Paint
 		{
 			ColorDialog c = new ColorDialog();
 			if (c.ShowDialog() == DialogResult.OK)
-			{
 				btnPenColor.BackColor = c.Color;
-			}
+			if (btnPenColor.BackColor == Color.Black)
+				btnPenColor.ForeColor = Color.White;
 		}
 
 		private void pnlDraw_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (startPaint)
 			{
+				Pen pen;
 				//set pen to options
-				Pen pen = new Pen(btnPenColor.BackColor, barPenWidth.Value);
-
+				if (rdbtnChooseEraser.Focused)
+				{
+					pen = new Pen(pnlDraw.BackColor, barPenWidth.Value);
+				}
+				else
+				{
+					pen = new Pen(btnPenColor.BackColor, barPenWidth.Value);
+				}
 				g.DrawLine(pen, new Point(coordX ?? e.X, coordY ?? e.Y), new Point(e.X, e.Y));
 				/* ?? returns left if not null, else returns right
 				 * coordX ?? e.X equivalent to:
@@ -53,8 +60,8 @@ namespace Paint
 				 *    
 				 */
 
-
-				coordX = e.X;
+				//allows line to continue
+				coordX = e.X; 
 				coordY = e.Y;
 			}
 		}
