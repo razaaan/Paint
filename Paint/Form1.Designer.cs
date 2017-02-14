@@ -38,6 +38,7 @@
 			this.rdbtnChooseRectangle = new System.Windows.Forms.RadioButton();
 			this.rdbtnChooseCircle = new System.Windows.Forms.RadioButton();
 			this.rdbtnChooseEraser = new System.Windows.Forms.RadioButton();
+			this.btnClear = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.barPenWidth)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -80,7 +81,7 @@
 			this.groupBox1.Controls.Add(this.barPenWidth);
 			this.groupBox1.Location = new System.Drawing.Point(12, 200);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(200, 211);
+			this.groupBox1.Size = new System.Drawing.Size(200, 188);
 			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Pen Control";
@@ -151,11 +152,22 @@
 			this.rdbtnChooseEraser.Text = "Eraser";
 			this.rdbtnChooseEraser.UseVisualStyleBackColor = true;
 			// 
+			// btnClear
+			// 
+			this.btnClear.Location = new System.Drawing.Point(13, 395);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(199, 47);
+			this.btnClear.TabIndex = 5;
+			this.btnClear.Text = "Clear All";
+			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(807, 454);
+			this.Controls.Add(this.btnClear);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.pnlDraw);
@@ -182,6 +194,7 @@
 		private System.Windows.Forms.RadioButton rdbtnChooseCircle;
 		private System.Windows.Forms.RadioButton rdbtnChooseRectangle;
 		private System.Windows.Forms.RadioButton rdbtnChoosePen;
+		private System.Windows.Forms.Button btnClear;
 	}
 }
 

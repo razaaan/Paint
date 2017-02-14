@@ -78,5 +78,10 @@ namespace Paint
 			coordX = null;
 			coordY = null;
 		}
+
+		private void btnClear_Click(object sender, EventArgs e)
+		{
+			g.Clear(pnlDraw.BackColor);
+		}
 	}
 }
