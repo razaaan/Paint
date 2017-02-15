@@ -34,10 +34,10 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.rdbtnChoosePen = new System.Windows.Forms.RadioButton();
-			this.rdbtnChooseRectangle = new System.Windows.Forms.RadioButton();
-			this.rdbtnChooseCircle = new System.Windows.Forms.RadioButton();
-			this.rdbtnChooseEraser = new System.Windows.Forms.RadioButton();
+			this.btnChooseEraser = new System.Windows.Forms.Button();
+			this.btnChooseEllipse = new System.Windows.Forms.Button();
+			this.btnChooseRectangle = new System.Windows.Forms.Button();
+			this.btnChooseBrush = new System.Windows.Forms.Button();
 			this.btnClear = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.barPenWidth)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -97,10 +97,10 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.rdbtnChooseEraser);
-			this.groupBox2.Controls.Add(this.rdbtnChooseCircle);
-			this.groupBox2.Controls.Add(this.rdbtnChooseRectangle);
-			this.groupBox2.Controls.Add(this.rdbtnChoosePen);
+			this.groupBox2.Controls.Add(this.btnChooseEraser);
+			this.groupBox2.Controls.Add(this.btnChooseEllipse);
+			this.groupBox2.Controls.Add(this.btnChooseRectangle);
+			this.groupBox2.Controls.Add(this.btnChooseBrush);
 			this.groupBox2.Location = new System.Drawing.Point(12, 14);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(200, 180);
@@ -108,49 +108,49 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Tools";
 			// 
-			// rdbtnChoosePen
+			// btnChooseEraser
 			// 
-			this.rdbtnChoosePen.AutoSize = true;
-			this.rdbtnChoosePen.Location = new System.Drawing.Point(9, 32);
-			this.rdbtnChoosePen.Name = "rdbtnChoosePen";
-			this.rdbtnChoosePen.Size = new System.Drawing.Size(54, 21);
-			this.rdbtnChoosePen.TabIndex = 0;
-			this.rdbtnChoosePen.TabStop = true;
-			this.rdbtnChoosePen.Text = "Pen";
-			this.rdbtnChoosePen.UseVisualStyleBackColor = true;
+			this.btnChooseEraser.BackColor = System.Drawing.Color.LightGray;
+			this.btnChooseEraser.Location = new System.Drawing.Point(9, 136);
+			this.btnChooseEraser.Name = "btnChooseEraser";
+			this.btnChooseEraser.Size = new System.Drawing.Size(185, 32);
+			this.btnChooseEraser.TabIndex = 3;
+			this.btnChooseEraser.Text = "Eraser";
+			this.btnChooseEraser.UseVisualStyleBackColor = false;
+			this.btnChooseEraser.Click += new System.EventHandler(this.btnChooseEraser_Click);
 			// 
-			// rdbtnChooseRectangle
+			// btnChooseEllipse
 			// 
-			this.rdbtnChooseRectangle.AutoSize = true;
-			this.rdbtnChooseRectangle.Location = new System.Drawing.Point(9, 60);
-			this.rdbtnChooseRectangle.Name = "rdbtnChooseRectangle";
-			this.rdbtnChooseRectangle.Size = new System.Drawing.Size(93, 21);
-			this.rdbtnChooseRectangle.TabIndex = 1;
-			this.rdbtnChooseRectangle.TabStop = true;
-			this.rdbtnChooseRectangle.Text = "Rectangle";
-			this.rdbtnChooseRectangle.UseVisualStyleBackColor = true;
+			this.btnChooseEllipse.BackColor = System.Drawing.Color.LightGray;
+			this.btnChooseEllipse.Location = new System.Drawing.Point(9, 100);
+			this.btnChooseEllipse.Name = "btnChooseEllipse";
+			this.btnChooseEllipse.Size = new System.Drawing.Size(185, 32);
+			this.btnChooseEllipse.TabIndex = 2;
+			this.btnChooseEllipse.Text = "Ellipse";
+			this.btnChooseEllipse.UseVisualStyleBackColor = false;
+			this.btnChooseEllipse.Click += new System.EventHandler(this.btnChooseEllipse_Click);
 			// 
-			// rdbtnChooseCircle
+			// btnChooseRectangle
 			// 
-			this.rdbtnChooseCircle.AutoSize = true;
-			this.rdbtnChooseCircle.Location = new System.Drawing.Point(9, 88);
-			this.rdbtnChooseCircle.Name = "rdbtnChooseCircle";
-			this.rdbtnChooseCircle.Size = new System.Drawing.Size(64, 21);
-			this.rdbtnChooseCircle.TabIndex = 2;
-			this.rdbtnChooseCircle.TabStop = true;
-			this.rdbtnChooseCircle.Text = "Circle";
-			this.rdbtnChooseCircle.UseVisualStyleBackColor = true;
+			this.btnChooseRectangle.BackColor = System.Drawing.Color.LightGray;
+			this.btnChooseRectangle.Location = new System.Drawing.Point(9, 60);
+			this.btnChooseRectangle.Name = "btnChooseRectangle";
+			this.btnChooseRectangle.Size = new System.Drawing.Size(185, 32);
+			this.btnChooseRectangle.TabIndex = 1;
+			this.btnChooseRectangle.Text = "Rectangle";
+			this.btnChooseRectangle.UseVisualStyleBackColor = false;
+			this.btnChooseRectangle.Click += new System.EventHandler(this.btnChooseRectangle_Click);
 			// 
-			// rdbtnChooseEraser
+			// btnChooseBrush
 			// 
-			this.rdbtnChooseEraser.AutoSize = true;
-			this.rdbtnChooseEraser.Location = new System.Drawing.Point(9, 116);
-			this.rdbtnChooseEraser.Name = "rdbtnChooseEraser";
-			this.rdbtnChooseEraser.Size = new System.Drawing.Size(71, 21);
-			this.rdbtnChooseEraser.TabIndex = 3;
-			this.rdbtnChooseEraser.TabStop = true;
-			this.rdbtnChooseEraser.Text = "Eraser";
-			this.rdbtnChooseEraser.UseVisualStyleBackColor = true;
+			this.btnChooseBrush.BackColor = System.Drawing.Color.Gray;
+			this.btnChooseBrush.Location = new System.Drawing.Point(9, 22);
+			this.btnChooseBrush.Name = "btnChooseBrush";
+			this.btnChooseBrush.Size = new System.Drawing.Size(185, 32);
+			this.btnChooseBrush.TabIndex = 0;
+			this.btnChooseBrush.Text = "Brush";
+			this.btnChooseBrush.UseVisualStyleBackColor = false;
+			this.btnChooseBrush.Click += new System.EventHandler(this.btnChooseBrush_Click);
 			// 
 			// btnClear
 			// 
@@ -177,7 +177,6 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -190,11 +189,11 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.RadioButton rdbtnChooseEraser;
-		private System.Windows.Forms.RadioButton rdbtnChooseCircle;
-		private System.Windows.Forms.RadioButton rdbtnChooseRectangle;
-		private System.Windows.Forms.RadioButton rdbtnChoosePen;
 		private System.Windows.Forms.Button btnClear;
+		private System.Windows.Forms.Button btnChooseEraser;
+		private System.Windows.Forms.Button btnChooseEllipse;
+		private System.Windows.Forms.Button btnChooseRectangle;
+		private System.Windows.Forms.Button btnChooseBrush;
 	}
 }
 
