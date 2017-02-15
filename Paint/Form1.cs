@@ -14,8 +14,11 @@ namespace Paint
 	public partial class Form1 : Form
 	{
 		Graphics g;
-		bool startPaint = false;
-		bool startPaintRectangle; //repeat for ellipse?
+
+		bool startPaintBrush;
+		bool startPaintRectangle;
+		bool startPaintEllipse;
+
 		int? coordX = null;
 		int? coordY = null;
 		Point startPos;
@@ -45,20 +48,17 @@ namespace Paint
 
 		private void pnlDraw_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (startPaint)
+			Pen pen;
+			if (eraser)
 			{
-
-				Pen pen;
-				//set pen to options
-				
-				if (eraser)
-				{
-					pen = new Pen(pnlDraw.BackColor, barPenWidth.Value);
-				}
-				else
-				{
-					pen = new Pen(btnPenColor.BackColor, barPenWidth.Value);
-				}
+				pen = new Pen(pnlDraw.BackColor, barPenWidth.Value);
+			}
+			else
+			{
+				pen = new Pen(btnPenColor.BackColor, barPenWidth.Value);
+			}
+			if (startPaintBrush)
+			{
 				if (brush || eraser)
 				{
 
@@ -76,23 +76,27 @@ namespace Paint
 					coordX = e.X;
 					coordY = e.Y;
 				}
-				if (rectangle && !startPaintRectangle)
-				{
-					g.DrawRectangle(pen, new Rectangle(startPos, new Size(endPos.X - startPos.X, endPos.Y - startPos.Y)));
-				}
+
+			}
+			if (rectangle && !startPaintRectangle)
+			{
+				g.DrawRectangle(pen, new Rectangle(startPos, new Size(endPos.X - startPos.X, endPos.Y - startPos.Y)));
 			}
 		}
 
 		private void pnlDraw_MouseDown(object sender, MouseEventArgs e)
 		{
-			startPaint = true; //allows pnlDraw_MouseMove to work
-			startPaintRectangle = true;
+			startPaintBrush = true; //allows pnlDraw_MouseMove to work
+			if (rectangle)
+				startPaintRectangle = true;
 			startPos = new Point(e.X, e.Y);
 		}
 
 		private void pnlDraw_MouseUp(object sender, MouseEventArgs e)
 		{
-			startPaintRectangle = false;
+			startPaintBrush = false;
+			if (rectangle)
+				startPaintRectangle = false;
 			endPos = new Point(e.X, e.Y);
 			coordX = null;
 			coordY = null;
