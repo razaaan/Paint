@@ -16,8 +16,8 @@ namespace Paint
 		Graphics g;
 
 		bool startPaintBrush;
-		bool startPaintRectangle;
-		bool startPaintEllipse;
+		bool startPaintShapes;
+
 
 		int? coordX = null;
 		int? coordY = null;
@@ -78,25 +78,29 @@ namespace Paint
 				}
 
 			}
-			if (rectangle && !startPaintRectangle)
+			if (rectangle && !startPaintShapes)
 			{
 				g.DrawRectangle(pen, new Rectangle(startPos, new Size(endPos.X - startPos.X, endPos.Y - startPos.Y)));
+			}
+			else if (ellipse && !startPaintShapes)
+			{
+				g.DrawEllipse(pen, new Rectangle(startPos, new Size(endPos.X - startPos.X, endPos.Y - startPos.Y)));
 			}
 		}
 
 		private void pnlDraw_MouseDown(object sender, MouseEventArgs e)
 		{
 			startPaintBrush = true; //allows pnlDraw_MouseMove to work
-			if (rectangle)
-				startPaintRectangle = true;
+			if (rectangle || ellipse)
+				startPaintShapes = true;
 			startPos = new Point(e.X, e.Y);
 		}
 
 		private void pnlDraw_MouseUp(object sender, MouseEventArgs e)
 		{
 			startPaintBrush = false;
-			if (rectangle)
-				startPaintRectangle = false;
+			if (rectangle || ellipse)
+				startPaintShapes = false;
 			endPos = new Point(e.X, e.Y);
 			coordX = null;
 			coordY = null;
